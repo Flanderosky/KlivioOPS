@@ -3,7 +3,7 @@ import { Search, Plus, X } from 'lucide-react';
 import { services } from '../data/mockData.js';
 
 export default function Servicios() {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para el modal de tickets
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const renderBadge = (tipo) => {
     const map = {
@@ -63,7 +63,6 @@ export default function Servicios() {
           <button className="btn btn-ghost">
             <Search size={14} /> Filtrar
           </button>
-          {/* Botón que abre el modal */}
           <button
             className="btn btn-primary"
             onClick={() => setIsModalOpen(true)}
@@ -73,129 +72,50 @@ export default function Servicios() {
         </div>
       </div>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '10px',
-          marginBottom: '20px',
-        }}
-      >
-        <div
-          style={{
-            background: 'rgba(239,68,68,0.06)',
-            border: '1px solid rgba(239,68,68,0.15)',
-            borderRadius: '10px',
-            padding: '14px',
-            textAlign: 'center',
-          }}
-        >
+      {/* HOMOLOGADO CON DASH.JSX: Uso de kpi-row y kpi-card */}
+      <div className="kpi-row" style={{ marginBottom: '24px' }}>
+        <div className="kpi-card" style={{ '--kpi-color': 'var(--red)' }}>
           <div
-            style={{
-              fontFamily: '"Syne", sans-serif',
-              fontSize: '24px',
-              fontWeight: '800',
-              color: 'var(--red)',
-            }}
+            className="kpi-icon"
+            style={{ background: 'rgba(239,68,68,0.08)' }}
           >
-            5
+            <span style={{ fontSize: '18px' }}>🚨</span>
           </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: 'var(--text2)',
-              marginTop: '2px',
-            }}
-          >
-            🚨 Correctivos
-          </div>
+          <div className="kpi-value" style={{ color: 'var(--red)' }}>5</div>
+          <div className="kpi-label">Correctivos</div>
         </div>
-        <div
-          style={{
-            background: 'rgba(16,185,129,0.06)',
-            border: '1px solid rgba(16,185,129,0.15)',
-            borderRadius: '10px',
-            padding: '14px',
-            textAlign: 'center',
-          }}
-        >
+        
+        <div className="kpi-card" style={{ '--kpi-color': 'var(--green)' }}>
           <div
-            style={{
-              fontFamily: '"Syne", sans-serif',
-              fontSize: '24px',
-              fontWeight: '800',
-              color: 'var(--green)',
-            }}
+            className="kpi-icon"
+            style={{ background: 'rgba(16,185,129,0.08)' }}
           >
-            8
+            <span style={{ fontSize: '18px' }}>🔧</span>
           </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: 'var(--text2)',
-              marginTop: '2px',
-            }}
-          >
-            🔧 Preventivos
-          </div>
+          <div className="kpi-value" style={{ color: 'var(--green)' }}>8</div>
+          <div className="kpi-label">Preventivos</div>
         </div>
-        <div
-          style={{
-            background: 'rgba(0,229,255,0.06)',
-            border: '1px solid rgba(0,229,255,0.15)',
-            borderRadius: '10px',
-            padding: '14px',
-            textAlign: 'center',
-          }}
-        >
+        
+        <div className="kpi-card" style={{ '--kpi-color': 'var(--accent)' }}>
           <div
-            style={{
-              fontFamily: '"Syne", sans-serif',
-              fontSize: '24px',
-              fontWeight: '800',
-              color: 'var(--accent)',
-            }}
+            className="kpi-icon"
+            style={{ background: 'rgba(124,58,237,0.08)' }}
           >
-            3
+            <span style={{ fontSize: '18px' }}>📦</span>
           </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: 'var(--text2)',
-              marginTop: '2px',
-            }}
-          >
-            📦 Instalaciones
-          </div>
+          <div className="kpi-value" style={{ color: 'var(--accent)' }}>3</div>
+          <div className="kpi-label">Instalaciones</div>
         </div>
-        <div
-          style={{
-            background: 'rgba(245,158,11,0.06)',
-            border: '1px solid rgba(245,158,11,0.15)',
-            borderRadius: '10px',
-            padding: '14px',
-            textAlign: 'center',
-          }}
-        >
+        
+        <div className="kpi-card" style={{ '--kpi-color': 'var(--yellow)' }}>
           <div
-            style={{
-              fontFamily: '"Syne", sans-serif',
-              fontSize: '24px',
-              fontWeight: '800',
-              color: 'var(--yellow)',
-            }}
+            className="kpi-icon"
+            style={{ background: 'rgba(245,158,11,0.08)' }}
           >
-            2
+            <span style={{ fontSize: '18px' }}>🔩</span>
           </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: 'var(--text2)',
-              marginTop: '2px',
-            }}
-          >
-            🔩 Refacciones
-          </div>
+          <div className="kpi-value" style={{ color: 'var(--yellow)' }}>2</div>
+          <div className="kpi-label">Refacciones</div>
         </div>
       </div>
 
@@ -243,7 +163,7 @@ export default function Servicios() {
         ))}
       </div>
 
-      {/* ── MODAL: NUEVO SERVICIO ── */}
+      {/* ── MODAL HOMOLOGADO ── */}
       <div
         className={`modal-overlay ${isModalOpen ? 'open' : ''}`}
         onClick={(e) => {
